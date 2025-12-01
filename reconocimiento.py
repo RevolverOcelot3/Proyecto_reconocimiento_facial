@@ -11,7 +11,7 @@ UMBRAL_CONFIANZA = 0.90
 
 ETIQUETAS_BONITAS = {
     "frame_yo": "Yo",
-    "mamac": "Mamá",
+    "mamac": "Mama",
     "yahairac": "Yahaira",
     "ramsesc": "Ramses",
     "marsellac": "Marsella",
@@ -23,11 +23,11 @@ ETIQUETAS_BONITAS = {
 }
 
 if not os.path.exists(RUTA_MODELO):
-    print(f"Error: No se encontró el archivo del modelo en '{RUTA_MODELO}'")
+    print(f"Error: No se encontro el archivo del modelo en '{RUTA_MODELO}'")
     exit()
 
 if not os.path.exists(RUTA_CLASES):
-    print(f"Error: No se encontró el archivo de clases en '{RUTA_CLASES}'")
+    print(f"Error: No se encontro el archivo de clases en '{RUTA_CLASES}'")
     exit()
 
 modelo = keras.models.load_model(RUTA_MODELO, compile=False)
@@ -39,7 +39,7 @@ ruta_cascade = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 clasificador_caras = cv2.CascadeClassifier(ruta_cascade)
 
 if clasificador_caras.empty():
-    raise RuntimeError("No se pudo cargar el clasificador Haar para rostros.")
+    raise RuntimeError("No se pudo cargar el clasificador para rostros.")
 
 def preprocesar_rostro(rostro_bgr: np.ndarray) -> np.ndarray:
     rostro_rgb = cv2.cvtColor(rostro_bgr, cv2.COLOR_BGR2RGB)
@@ -68,10 +68,10 @@ def main():
     camara = cv2.VideoCapture(0)
 
     if not camara.isOpened():
-        print("No se pudo abrir la cámara.")
+        print("No se pudo abrir la camara.")
         return
 
-    print("Cámara abierta. Presiona 'q' para salir.")
+    print("Camara abierta. Presiona 'q' para salir.")
 
     while True:
         ret, frame = camara.read()
